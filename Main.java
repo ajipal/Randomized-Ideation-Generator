@@ -48,10 +48,12 @@ public class Main extends JFrame implements ActionListener {
         });
 
         // Load phrases from files
-        loadPhrases("firststatement.txt", firstStatementPhrases);
-        loadPhrases("secondstatement.txt", secondStatementPhrases);
+        // Change the directory files
+        loadPhrases("C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\prompt\\firststatement.txt", firstStatementPhrases);
+        loadPhrases("C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\prompt\\secondstatement.txt", secondStatementPhrases);
     }
 
+    //open the files
     private void loadPhrases(String fileName, List<String> list) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
