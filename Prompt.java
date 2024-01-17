@@ -33,7 +33,7 @@ public class Prompt {
         }
     }
 
-    public void generateIdeas(JTextField txt1, JTextField txt2) {
+    public void generateIdeas(JTextField txtFirstStatement, JTextField txtSecondStatement) {
         Random random = new Random();
 
         //Check list if empty 
@@ -44,17 +44,17 @@ public class Prompt {
 
             // Set the text of the text fields
             if (lock1 && !lock2) {
-                txt2.setText(secondIdea);
+                txtSecondStatement.setText(secondIdea);
             } 
             else if (!lock1 && lock2) {
-                txt1.setText(firstIdea);
+                txtFirstStatement.setText(firstIdea);
             } 
             else if (lock1 && lock2) {
                 
             }
             else  {
-                txt1.setText(firstIdea);
-                txt2.setText(secondIdea);
+                txtFirstStatement.setText(firstIdea);
+                txtSecondStatement.setText(secondIdea);
             }
         } else {
             System.out.println("List is empty.");

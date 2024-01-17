@@ -5,15 +5,18 @@ import java.awt.event.*;
 public class Main extends JFrame implements ActionListener {
 
     // Components
-    private JButton btn1 = new JButton("Lock 1");
-    private JButton btn2 = new JButton("Lock 2");
-    private JButton btn3 = new JButton("Generate");
-    private JTextField txt1 = new JTextField("first statement");
-    private JTextField txt2 = new JTextField("second statement");
+    private JButton btnLock1 = new JButton("Lock 1");
+    private JButton btnLock2 = new JButton("Lock 2");
+    private JButton btnGenerate = new JButton("Generate");
+    private JButton btnFeedback = new JButton("Add");
+    private JTextField txtFirstStatement = new JTextField("first statement");
+    private JTextField txtSecondStatement = new JTextField("second statement");
 
     //Instantiate Prompt class
     private Prompt prompt = new Prompt("C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\prompt\\firststatement.txt",
                                "C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\prompt\\secondstatement.txt");
+
+    private Feedback feedback = new Feedback();
 
     public Main() {
         // Frame settings
@@ -21,25 +24,30 @@ public class Main extends JFrame implements ActionListener {
         setVisible(true);
         setSize(500, 300);
         setResizable(false);
+        txtFirstStatement.setEditable(false);
+        txtSecondStatement.setEditable(false);
 
         // Add the components to the frame
-        add(btn1);
-        add(txt1);
-        add(btn2);
-        add(txt2);
-        add(btn3);
+        add(btnLock1);
+        add(txtFirstStatement);
+        add(btnLock2);
+        add(txtSecondStatement);
+        add(btnGenerate);
+        add(btnFeedback);
 
         // Add action listeners
-        btn1.addActionListener(this);
-        btn2.addActionListener(this);
-        btn3.addActionListener(this);
+        btnLock1.addActionListener(this);
+        btnLock2.addActionListener(this);
+        btnGenerate.addActionListener(this);
+        btnFeedback.addActionListener(this);
 
         // Set Bounds for the Components
-        btn1.setBounds(25, 60, 80, 20);
-        txt1.setBounds(115, 55, 350, 30);
-        btn2.setBounds(25, 105, 80, 20);
-        txt2.setBounds(115, 100, 350, 30);
-        btn3.setBounds(210, 140, 90, 20);
+        btnLock1.setBounds(25, 60, 80, 20);
+        txtFirstStatement.setBounds(115, 55, 350, 30);
+        btnLock2.setBounds(25, 105, 80, 20);
+        txtSecondStatement.setBounds(115, 100, 350, 30);
+        btnGenerate.setBounds(210, 140, 90, 20);
+        btnFeedback.setBounds(310, 140, 90, 20);
 
         // Exit the program
         addWindowListener(new WindowAdapter() {
@@ -51,20 +59,26 @@ public class Main extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e) {
         // Generator button
-        if (e.getSource() == btn3) {
-            prompt.generateIdeas(txt1, txt2);
+        if (e.getSource() == btnGenerate) {
+            prompt.generateIdeas(txtFirstStatement, txtSecondStatement);
         }
 
         // First statement lock button
-        else if (e.getSource() == btn1) {
+        else if (e.getSource() == btnLock1) {
             prompt.toggleLock1();
-            prompt.toggleLock(txt1);
+            prompt.toggleLock(txtFirstStatement);
         }
 
         // Second statement lock button
-        else if (e.getSource() == btn2) {
+        else if (e.getSource() == btnLock2) {
             prompt.toggleLock2();
-            prompt.toggleLock(txt2);
+            prompt.toggleLock(txtSecondStatement);
+        }
+
+        // Feedback Button
+        else if (e.getSource() == btnFeedback) {
+            // Call the showFeedbackDialog method from the Feedback class
+            feedback.showFeedbackDialog();
         }
     }
     public static void main(String[] args) {
