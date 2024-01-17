@@ -46,8 +46,8 @@ public class Main extends JFrame implements ActionListener {
         txtFirstStatement.setBounds(115, 55, 350, 30);
         btnLock2.setBounds(25, 105, 80, 20);
         txtSecondStatement.setBounds(115, 100, 350, 30);
-        btnGenerate.setBounds(210, 140, 90, 20);
-        btnFeedback.setBounds(310, 140, 90, 20);
+        btnGenerate.setBounds(150, 160, 90, 20);
+        btnFeedback.setBounds(250, 160, 90, 20);
 
         // Exit the program
         addWindowListener(new WindowAdapter() {
