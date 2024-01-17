@@ -14,11 +14,13 @@ public class Prompt {
     private boolean lock1 = false;
     private boolean lock2 = false;
 
+    //Open the File and get the Prases
     public Prompt(String firstFilePath, String secondFilePath) {
         getPhrases(firstFilePath, firstStatementPhrases);
         getPhrases(secondFilePath, secondStatementPhrases);
     }
     
+    //Copy the Phrases in the File
     private void getPhrases(String fileName, List<String> list) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -34,8 +36,9 @@ public class Prompt {
     public void generateIdeas(JTextField txt1, JTextField txt2) {
         Random random = new Random();
 
-        // Randomly select phrases from the lists
+        //Check list if empty 
         if (!firstStatementPhrases.isEmpty() && !secondStatementPhrases.isEmpty()) {
+            // Randomly select phrases from the lists
             String firstIdea = firstStatementPhrases.get(random.nextInt(firstStatementPhrases.size()));
             String secondIdea = secondStatementPhrases.get(random.nextInt(secondStatementPhrases.size()));
 
@@ -59,6 +62,7 @@ public class Prompt {
         
     }
 
+    //changing boolean value
     public void toggleLock1() {
         lock1 = !lock1;
     }
@@ -67,6 +71,7 @@ public class Prompt {
         lock2 = !lock2;
     }
 
+    //Disabled the random function in a JTextField
     public void toggleLock(JTextField textField) {
         boolean currentState = textField.isEnabled();
         textField.setEnabled(!currentState);

@@ -11,7 +11,7 @@ public class Main extends JFrame implements ActionListener {
     private JTextField txt1 = new JTextField("first statement");
     private JTextField txt2 = new JTextField("second statement");
 
-    //Instantiate classes
+    //Instantiate Prompt class
     private Prompt prompt = new Prompt("C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\prompt\\firststatement.txt",
                                "C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\prompt\\secondstatement.txt");
 
