@@ -22,7 +22,7 @@ public class Main extends JFrame implements ActionListener {
         // Frame settings
         setLayout(null);
         setVisible(true);
-        setSize(500, 300);
+        setSize(600, 400);
         setResizable(false);
         txtFirstStatement.setEditable(false);
         txtSecondStatement.setEditable(false);
@@ -42,12 +42,42 @@ public class Main extends JFrame implements ActionListener {
         btnFeedback.addActionListener(this);
 
         // Set Bounds for the Components
-        btnLock1.setBounds(25, 60, 80, 20);
-        txtFirstStatement.setBounds(115, 55, 350, 30);
-        btnLock2.setBounds(25, 105, 80, 20);
-        txtSecondStatement.setBounds(115, 100, 350, 30);
-        btnGenerate.setBounds(150, 160, 90, 20);
-        btnFeedback.setBounds(250, 160, 90, 20);
+        btnLock1.setBounds(55, 105, 80, 20);
+        txtFirstStatement.setBounds(145, 100, 380, 30);
+        btnLock2.setBounds(55, 150, 80, 20);
+        txtSecondStatement.setBounds(145, 145, 380, 30);
+        btnGenerate.setBounds(200, 215, 100, 20);
+        btnFeedback.setBounds(340, 215, 90, 20);
+
+        // Set background colors
+        Color backgroundColor = new Color(99, 188, 229); // #63BCE5
+        Color buttonColor = new Color(40, 85, 154);      // #28559A
+
+        getContentPane().setBackground(backgroundColor);
+        btnLock1.setBackground(buttonColor);
+        btnLock2.setBackground(buttonColor);
+        btnGenerate.setBackground(buttonColor); 
+
+        // Set text colors of the statements to black
+        Color textColor = Color.BLACK;
+        txtFirstStatement.setForeground(textColor);
+        txtSecondStatement.setForeground(textColor);
+
+        // set the text colors of the texts inside the buttons to white
+        Color textColor2 = Color.WHITE;
+        btnLock1.setForeground(textColor2);
+        btnLock2.setForeground(textColor2);
+        btnGenerate.setForeground(textColor2);
+
+        // Set font styles
+        Font virgo1Font = new Font("Virgo 1", Font.PLAIN, 14);
+        Font DenseFont = new Font("Dense", Font.PLAIN, 14);
+
+        btnLock1.setFont(virgo1Font);
+        btnLock2.setFont(virgo1Font);
+        btnGenerate.setFont(virgo1Font);
+        txtFirstStatement.setFont(DenseFont);
+        txtSecondStatement.setFont(DenseFont);
 
         // Exit the program
         addWindowListener(new WindowAdapter() {
