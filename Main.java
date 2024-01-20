@@ -57,6 +57,7 @@ public class Main extends JFrame implements ActionListener {
         btnLock1.setBackground(buttonColor);
         btnLock2.setBackground(buttonColor);
         btnGenerate.setBackground(buttonColor); 
+        btnFeedback.setBackground(buttonColor);
 
         // Set text colors of the statements to black
         Color textColor = Color.BLACK;
@@ -68,6 +69,7 @@ public class Main extends JFrame implements ActionListener {
         btnLock1.setForeground(textColor2);
         btnLock2.setForeground(textColor2);
         btnGenerate.setForeground(textColor2);
+        btnFeedback.setForeground(textColor2);
 
         // Set font styles
         Font virgo1Font = new Font("Virgo 1", Font.PLAIN, 14);
@@ -76,6 +78,7 @@ public class Main extends JFrame implements ActionListener {
         btnLock1.setFont(virgo1Font);
         btnLock2.setFont(virgo1Font);
         btnGenerate.setFont(virgo1Font);
+        btnFeedback.setFont(virgo1Font);
         txtFirstStatement.setFont(DenseFont);
         txtSecondStatement.setFont(DenseFont);
 
