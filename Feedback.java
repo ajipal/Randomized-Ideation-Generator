@@ -18,7 +18,7 @@ public class Feedback {
         JTextField feedbackField1 = new JTextField();
         JTextField feedbackField2 = new JTextField();
 
-        // Customize colors and font styles
+        // Customize font colors and font styles
         feedbackField1.setBackground(Color.WHITE);
         feedbackField2.setBackground(Color.WHITE);
         feedbackField1.setForeground(Color.BLACK); // Text color black
@@ -38,9 +38,9 @@ public class Feedback {
         };
 
         // Set the background color and button color
-        UIManager.put("OptionPane.background", new Color(99, 188, 229));
-        UIManager.put("Panel.background", new Color(99, 188, 229));
-        UIManager.put("Button.background", new Color(40, 85, 154)); // Button color
+        UIManager.put("OptionPane.background", new Color(36, 40, 52)); // Main frame background color
+        UIManager.put("Panel.background", new Color(36, 40, 52)); // Main frame background color
+        UIManager.put("Button.background", new Color(228, 93, 88)); // Button color
         UIManager.put("Button.foreground", Color.WHITE); // Text color
 
         int option = JOptionPane.showConfirmDialog(null, dialogContent, "Feedback", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
@@ -67,16 +67,11 @@ public class Feedback {
 
         if (!feedbackProcessed) {
             // Set the background color for the message dialog
-            UIManager.put("OptionPane.background", new Color(99, 188, 229));
-            UIManager.put("Panel.background", new Color(99, 188, 229));
+            UIManager.put("OptionPane.background", new Color(36, 40, 52)); // Main frame background color
+            UIManager.put("Panel.background", new Color(36, 40, 52)); // Main frame background color
             UIManager.put("OptionPane.messageForeground", Color.WHITE); // Message text color
 
             JOptionPane.showMessageDialog(null, "Thank you for your feedback!", "Feedback Submitted", JOptionPane.INFORMATION_MESSAGE);
-
-            // Reset the colors to default
-            UIManager.put("OptionPane.background", UIManager.get("OptionPane.messageBackground"));
-            UIManager.put("Panel.background", UIManager.get("OptionPane.background"));
-            UIManager.put("OptionPane.messageForeground", UIManager.get("OptionPane.messageForeground"));
 
             feedbackProcessed = true;
         }

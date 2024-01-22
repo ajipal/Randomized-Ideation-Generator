@@ -71,6 +71,14 @@ public class Prompt {
         lock2 = !lock2;
     }
 
+    public boolean isLock1() {
+        return lock1;
+    }
+
+    public boolean isLock2() {
+        return lock2;
+    }
+
     //Disabled the random function in a JTextField
     public void toggleLock(JTextField textField) {
         boolean currentState = textField.isEnabled();
