@@ -43,7 +43,7 @@ public class Feedback {
         UIManager.put("Button.background", new Color(228, 93, 88)); // Button color
         UIManager.put("Button.foreground", Color.WHITE); // Text color
 
-        int option = JOptionPane.showConfirmDialog(null, dialogContent, "Feedback", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        int option = JOptionPane.showConfirmDialog(null, dialogContent, "Add Idea", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
         // Process user input if OK is clicked
         if (option == JOptionPane.OK_OPTION) {
