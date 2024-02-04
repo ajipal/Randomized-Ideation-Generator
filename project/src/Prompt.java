@@ -10,7 +10,7 @@ public class Prompt {
     private List<String> firstStatementPhrases = new ArrayList<>();
     private List<String> secondStatementPhrases = new ArrayList<>();
     
-    //sentinels
+    //sentinels/flag
     private boolean lock1 = false;
     private boolean lock2 = false;
 
