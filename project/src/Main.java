@@ -58,6 +58,7 @@ public class Main extends JFrame implements ActionListener {
         });
     }
 
+    //Main Constructor
     public Main() {
 
         //Frame settings
@@ -274,7 +275,11 @@ public class Main extends JFrame implements ActionListener {
         else if (e.getSource() == btnDelete) {
             int selectedIndex = listSavedPrompt1.getSelectedIndex();
             if (selectedIndex != -1) {
-                savedPromptListModel.remove(selectedIndex);
+                //confirmation of deletion
+                int choice = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this Idea?", "Confirmation", JOptionPane.YES_NO_OPTION);
+                if(choice == 0){
+                    savedPromptListModel.remove(selectedIndex);
+                }
             }
             else {
                 JOptionPane.showMessageDialog(null, "Please select a prompt to delete.");

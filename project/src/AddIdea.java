@@ -134,10 +134,4 @@ public class AddIdea {
             saveIdeaToFile(userIdea, ((ButtonToTextFieldListener) button.getActionListeners()[0]).filePath);
         }
     }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            new AddIdea().showIdeaDialog();
-        });
-    }
 }
