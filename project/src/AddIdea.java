@@ -14,8 +14,8 @@ public class AddIdea {
 
     public void showIdeaDialog() {
         // Update the file paths as per your requirement
-        String idea1FilePath = "Add Prompt Ideas\\Idea1.txt";
-        String idea2FilePath = "Add Prompt Ideas\\Idea2.txt";
+        String idea1FilePath = "C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\Add Prompt Ideas\\Idea1.txt";
+        String idea2FilePath = "C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\Add Prompt Ideas\\Idea2.txt";
 
         parentPanel = new JPanel(new GridLayout(4, 1));
         parentPanel.setBackground(new Color(36, 40, 52)); // Set background color

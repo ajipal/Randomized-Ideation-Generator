@@ -5,15 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class Main extends JFrame implements ActionListener {
 
+    //components for the frame
     private JPanel panelHeader = new JPanel();
     private JButton btnGenerator = new JButton("Generator");
     private JButton btnDashboard = new JButton("Dashboard");
@@ -23,7 +21,6 @@ public class Main extends JFrame implements ActionListener {
     private JButton btnLock2 = new JButton("Lock");
     private JButton btnGenerate = new JButton("Generate");
     private JButton btnAddIdea = new JButton("Add");
-    private AddIdea addIdea = new AddIdea();
     private JButton btnSave = new JButton("Save");
     private JTextField txtFirstStatement = new JTextField("first statement");
     private JTextField txtSecondStatement = new JTextField("second statement");
@@ -38,10 +35,16 @@ public class Main extends JFrame implements ActionListener {
     private JList<String> listSavedPrompt1 = new JList<>(savedPromptListModel);
     private JScrollPane scrollPane = new JScrollPane(listSavedPrompt1);
     private JTextArea txtSavedPrompts = new JTextArea();
+    String ratingsFilePath = "C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\ratings\\ratings.txt";
 
-    private Prompt prompt = new Prompt("prompt\\firststatement.txt", "prompt\\secondstatement.txt");
-    String ratingsFilePath = "ratings\\ratings.txt";
+    //Instantiate every Classes
+    private Prompt prompt = new Prompt("C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\prompt\\firststatement.txt",
+                                       "C:\\Users\\ANTONETTE\\Documents\\GitHub\\Randomized-Ideation-Generator\\prompt\\secondstatement.txt");
+    private AddIdea addIdea = new AddIdea();
+    private Rate rateHandler = new Rate(savedPromptListModel, ratingsFilePath, listSavedPrompt1);
+    private Saved save = new Saved(savedPromptListModel, txtFirstStatement, txtSecondStatement);
 
+    //Main method to start the program
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -183,6 +186,7 @@ public class Main extends JFrame implements ActionListener {
         btnSave.setFont(new Font("SansSerif", Font.BOLD, 18));
         btnSave.addActionListener(this);
 
+        //Adding the components in the Container Panel
         generatorPanel.add(btnLock1);
         generatorPanel.add(btnLock2);
         generatorPanel.add(btnGenerate);
@@ -191,11 +195,13 @@ public class Main extends JFrame implements ActionListener {
         generatorPanel.add(txtSecondStatement);
         generatorPanel.add(btnSave);
 
+        //Adding Hovering functionalities in each buttons using MouseListener
         setupButtonMouseListener(btnGenerator, new Color(228, 93, 88), new Color(54, 57, 63));
         setupButtonMouseListener(btnDashboard, new Color(228, 93, 88), new Color(54, 57, 63));
         setupButtonMouseListener(btnRate, new Color(228, 93, 88), new Color(36, 40, 42));
     }
 
+    //Method for the hovering effects
     private void setupButtonMouseListener(JButton button, Color enterColor, Color exitColor) {
         button.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
@@ -245,7 +251,6 @@ public class Main extends JFrame implements ActionListener {
             addIdea.showIdeaDialog();
         }
         else if (e.getSource() == btnSave) {
-            Saved save = new Saved(savedPromptListModel, txtFirstStatement, txtSecondStatement);
             save.actionPerformed(e);
         }
 
@@ -264,7 +269,6 @@ public class Main extends JFrame implements ActionListener {
         //BUTTON FUNCTION FOR DASHBOARD PAGE
         else if (e.getSource() == btnRate) {
             btnRate.setBackground(new Color(228, 93, 88));
-            Rate rateHandler = new Rate(savedPromptListModel, ratingsFilePath, listSavedPrompt1);
             rateHandler.actionPerformed(e);
         }
         else if (e.getSource() == btnDelete) {
@@ -277,15 +281,4 @@ public class Main extends JFrame implements ActionListener {
             }
         }
     }
-
-    //METHODS FOR SAVED CHECKING
-    // private boolean isIdeaAlreadySaved(String idea) {
-    //     for (int i = 0; i < savedPromptListModel.size(); i++) {
-    //         if (savedPromptListModel.getElementAt(i).equals(idea)) {
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-    
 }
