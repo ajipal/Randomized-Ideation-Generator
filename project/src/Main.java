@@ -245,16 +245,8 @@ public class Main extends JFrame implements ActionListener {
             addIdea.showIdeaDialog();
         }
         else if (e.getSource() == btnSave) {
-            String save1 = txtFirstStatement.getText();
-            String save2 = txtSecondStatement.getText();
-            String newsave2 = save2.replace("-", "");
-            String save3 = save1 + " " + newsave2;
-
-            if (!isIdeaAlreadySaved(save3)) {
-                savedPromptListModel.addElement(save3);
-            } else {
-                JOptionPane.showMessageDialog(null, "Idea already saved!");
-            }
+            Saved save = new Saved(savedPromptListModel, txtFirstStatement, txtSecondStatement);
+            save.actionPerformed(e);
         }
 
         //BUTTON FUNCTION FOR HEADER
@@ -287,13 +279,13 @@ public class Main extends JFrame implements ActionListener {
     }
 
     //METHODS FOR SAVED CHECKING
-    private boolean isIdeaAlreadySaved(String idea) {
-        for (int i = 0; i < savedPromptListModel.size(); i++) {
-            if (savedPromptListModel.getElementAt(i).equals(idea)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // private boolean isIdeaAlreadySaved(String idea) {
+    //     for (int i = 0; i < savedPromptListModel.size(); i++) {
+    //         if (savedPromptListModel.getElementAt(i).equals(idea)) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
     
 }
