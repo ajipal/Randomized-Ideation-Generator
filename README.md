@@ -8,5 +8,6 @@ Need to download:
 - Rate.java
 - Prompt.java
 - ratings folder
-- 
+- add prompt ideas folder
+- prompt folder
  
