@@ -6,5 +6,7 @@ Need to download:
 - AddIdea.java
 - Saved.java
 - Rate.java
+- Prompt.java
+- ratings folder
 - 
  
