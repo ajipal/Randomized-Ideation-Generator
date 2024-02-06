@@ -1,7 +1,7 @@
 # Randomized-Ideation-Generator
  A group project that gives random ideas for designers.
  
-Need to download:
+Need to Pull:
 - Main.java
 - AddIdea.java
 - Saved.java
